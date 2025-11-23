@@ -29,12 +29,6 @@ export async function renameFiles(): Promise<void> {
       throw new Error("file names are duplicated. renaming was not performed.");
     }
 
-    if (newNames.some((name: string) => /[\s　]/.test(name))) {
-      throw new Error(
-        "file names cannot contain whitespace characters. renaming was not performed.",
-      );
-    }
-
     newNames.forEach((name: string) => {
       if (name.includes("/") || name.includes("\\")) {
         throw new Error(
